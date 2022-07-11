@@ -1,0 +1,99 @@
+<div class="input">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <div class="fields">
+                <form [formGroup]="costForm" (ngSubmit)="submit(costForm)">
+                    <div class="project-information">
+                        <h2>Project Information</h2>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Project Type*</label>
+                                <select formControlName="project_type" name="" id="">
+                                    <option value="" hidden>Select</option>
+                                    <option *ngFor="let opt of options.project_type" value="{{opt}}">{{opt}}</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Project Floor Area (SQ.M)*</label>
+                                <input formControlName="project_floor_area" type="text">
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Project Location*</label>
+                                <input formControlName="project_location" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="work-scope">
+                        <h2>Scope of Work</h2>
+
+                        <h3>3D BIM Modelling and coordination services</h3>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Architecture*</label>
+                                <select formControlName="architecture" name="" id="">
+                                    <option value="" hidden>Select</option>
+                                    <option *ngFor="let opt of options.works" value="{{opt}}">{{opt}}</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Structure*</label>
+                                <select formControlName="structure" name="" id="">
+                                    <option value="" hidden>Select</option>
+                                    <option *ngFor="let opt of options.works" value="{{opt}}">{{opt}}</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">MEPFS*</label>
+                                <select formControlName="mepfs" name="" id="">
+                                    <option value="" hidden>Select</option>
+                                    <option *ngFor="let opt of options.works" value="{{opt}}">{{opt}}</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Drawing Production*</label>
+                                <select formControlName="drawing_production" name="" id="">
+                                    <option value="" hidden>Select</option>
+                                    <option *ngFor="let opt of options.drawing_production" value="{{opt}}">{{opt}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="client-information">
+                        <h2>Client Information</h2>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Full Name/Company Name*</label>
+                                <input formControlName="full_name" type="text">
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Contact Number*</label>
+                                <input formControlName="contact_number" type="text">
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Email Address*</label>
+                                <input formControlName="email" type="text">
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label for="">Address*</label>
+                                <input formControlName="address" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit">Calculate</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div class="partial-result">
+                <p>Your total payment will be</p>
+                <h1>
+                    00000
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>

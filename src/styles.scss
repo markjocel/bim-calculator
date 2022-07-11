@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url(./assets/styles/flexboxgrid.min.css);
+@import url(./assets/styles/normalize.css);
+
+html {
+    font-size: 10px;
+    background-color: #f0f4fb;
+}
+
+body {
+    margin: 0%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: #204054;
+
+    position: relative;
+
+    &.modal-open {
+        overflow: hidden;
+    }
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
