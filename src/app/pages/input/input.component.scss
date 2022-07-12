@@ -81,6 +81,14 @@ button {
     }
 }
 
+form.ng-submitted {
+
+    input.ng-invalid,
+    select.ng-invalid {
+        border: 1px solid red;
+    }
+}
+
 .partial-result {
     max-height: calc(100vh - 14.5rem);
     min-height: calc(100vh - 14.5rem);
