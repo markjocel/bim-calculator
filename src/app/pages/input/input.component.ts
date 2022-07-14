@@ -86,6 +86,8 @@ export class InputComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.computeService.setSoftwareCost(1000);
+    // this.computeService.getSoftwareCost()
   }
 
   submit(form: FormGroup) {
