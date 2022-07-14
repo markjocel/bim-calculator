@@ -72,7 +72,7 @@ export class InputComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private computeService: ComputeService, private router: Router) {
     this.costForm = this.formBuilder.group({
       project_type: ['', Validators.required],
-      project_floor_area: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
+      project_floor_area: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*'), Validators.max(10000)])],
       project_location: ['', Validators.required],
       architecture: ['', Validators.required],
       structure: ['', Validators.required],
@@ -89,7 +89,6 @@ export class InputComponent implements OnInit {
   }
 
   submit(form: FormGroup) {
-    this.submitted = true
     // Check if area is too big
     // Handle not requireds meron na
     if (form.valid) {
@@ -103,7 +102,9 @@ export class InputComponent implements OnInit {
 
       if (floorArea == 'AREA IS TOO BIG') {
         // catch invalid here
+        this.submitted = false
       } else {
+        this.submitted = true
         // valid response
         var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod)
         var structureTotal = this.computeService.computeStructure(floorArea, structureLod)
@@ -140,7 +141,7 @@ export class InputComponent implements OnInit {
   }
 
   showFullSummary() {
-    if (this.costForm.valid) {
+    if (this.costForm.valid && this.submitted) {
       this.router.navigate(['/summary'], { state: { data: this.computations } })
     }
   }
