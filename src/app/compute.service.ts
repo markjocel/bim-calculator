@@ -43,6 +43,35 @@ export class ComputeService {
   manpower = {
     architecture: [
       {
+        lod: 0,
+        man: [
+          {
+            floorArea: this.floorAreas.first,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.second,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+        ]
+      },
+      {
         lod: 100,
         man: [
           {
@@ -191,6 +220,35 @@ export class ComputeService {
     ],
     structure: [
       {
+        lod: 0,
+        man: [
+          {
+            floorArea: this.floorAreas.first,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.second,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+        ]
+      },
+      {
         lod: 100,
         man: [
           {
@@ -338,6 +396,35 @@ export class ComputeService {
       },
     ],
     mepfs: [
+      {
+        lod: 0,
+        man: [
+          {
+            floorArea: this.floorAreas.first,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.second,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            modeler: 0,
+            coordinator: 0,
+            manager: 0,
+          },
+        ]
+      },
       {
         lod: 100,
         man: [
@@ -490,6 +577,15 @@ export class ComputeService {
   duration = {
     architecture: [
       {
+        lod: 0,
+        months: [
+          { floorArea: this.floorAreas.first, month: 0 },
+          { floorArea: this.floorAreas.second, month: 0, },
+          { floorArea: this.floorAreas.third, month: 0, },
+          { floorArea: this.floorAreas.fourth, month: 0 },
+        ]
+      },
+      {
         lod: 100,
         months: [
           { floorArea: this.floorAreas.first, month: 1 },
@@ -538,6 +634,15 @@ export class ComputeService {
     ],
     structure: [
       {
+        lod: 0,
+        months: [
+          { floorArea: this.floorAreas.first, month: 0 },
+          { floorArea: this.floorAreas.second, month: 0, },
+          { floorArea: this.floorAreas.third, month: 0, },
+          { floorArea: this.floorAreas.fourth, month: 0 },
+        ]
+      },
+      {
         lod: 100,
         months: [
           { floorArea: this.floorAreas.first, month: 1 },
@@ -585,6 +690,15 @@ export class ComputeService {
       },
     ],
     mepfs: [
+      {
+        lod: 0,
+        months: [
+          { floorArea: this.floorAreas.first, month: 0 },
+          { floorArea: this.floorAreas.second, month: 0, },
+          { floorArea: this.floorAreas.third, month: 0, },
+          { floorArea: this.floorAreas.fourth, month: 0 },
+        ]
+      },
       {
         lod: 100,
         months: [
@@ -695,11 +809,11 @@ export class ComputeService {
     }
   }
 
-  computeManager(floorArea: string, lod: number) {
+  computeManager(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number,) {
     // Manager * max duration of services
-    let a = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, lod)
-    let s = this.getDuration(this.SERVICE_STRUCTURE, floorArea, lod)
-    let m = this.getDuration(this.SERVICE_MEPFS, floorArea, lod)
+    let a = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, architectureLod)
+    let s = this.getDuration(this.SERVICE_STRUCTURE, floorArea, structureLod)
+    let m = this.getDuration(this.SERVICE_MEPFS, floorArea, mepfsLod)
 
     let maxDuration = Math.max(a, s, m)
     let managerSalary = this.procurement.manpower.manager
@@ -707,7 +821,7 @@ export class ComputeService {
     return managerSalary * maxDuration
   }
 
-  computeHardwareSoftware(architectureFloorArea: string, architectureLod: number, structureFloorArea: string, structureLod: number, mepfsFloorArea: string, mepfsLod: number,) {
+  computeHardwareSoftware(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number,) {
     // totalSoftware * totalArchitectureEmployeeNumber * architectureDuration
     // structureDuration * totalStructureEmployeeNumber * totalSoftware
     // totalSoftware * totalMepfsEmployeeNumber * mepfsDuration
@@ -715,20 +829,20 @@ export class ComputeService {
     var software = this.procurement.software
     var totalSoftware = software.revit + software.cad + software.data_env + software.navis
 
-    var totalArchitectureEmployee = this.manpower.architecture.filter(x => x.lod == architectureLod)[0].man.filter(x => x.floorArea == architectureFloorArea)
+    var totalArchitectureEmployee = this.manpower.architecture.filter(x => x.lod == architectureLod)[0].man.filter(x => x.floorArea == floorArea)
     var totalArchitectureEmployeeNumber = totalArchitectureEmployee[0].modeler + totalArchitectureEmployee[0].coordinator + totalArchitectureEmployee[0].manager
 
-    var architectureDuration = this.getDuration(this.SERVICE_ARCHITECTURE, architectureFloorArea, architectureLod)
+    var architectureDuration = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, architectureLod)
 
-    var structureDuration = this.getDuration(this.SERVICE_STRUCTURE, structureFloorArea, structureLod)
+    var structureDuration = this.getDuration(this.SERVICE_STRUCTURE, floorArea, structureLod)
 
-    var totalStructureEmployee = this.manpower.structure.filter(x => x.lod == structureLod)[0].man.filter(x => x.floorArea == structureFloorArea)
+    var totalStructureEmployee = this.manpower.structure.filter(x => x.lod == structureLod)[0].man.filter(x => x.floorArea == floorArea)
     var totalStructureEmployeeNumber = totalStructureEmployee[0].modeler + totalStructureEmployee[0].coordinator
 
-    var totalMepfsEmployee = this.manpower.mepfs.filter(x => x.lod == mepfsLod)[0].man.filter(x => x.floorArea == mepfsFloorArea)
+    var totalMepfsEmployee = this.manpower.mepfs.filter(x => x.lod == mepfsLod)[0].man.filter(x => x.floorArea == floorArea)
     var totalMepfsEmployeeNumber = totalMepfsEmployee[0].modeler + totalMepfsEmployee[0].coordinator
 
-    var mepfsDuration = this.getDuration(this.SERVICE_MEPFS, mepfsFloorArea, mepfsLod)
+    var mepfsDuration = this.getDuration(this.SERVICE_MEPFS, floorArea, mepfsLod)
 
     var totalEquipment = this.procurement.equipment.laptop
 
@@ -788,26 +902,30 @@ export class ComputeService {
   // }
 
   getDuration(service: string, floorArea: string, lod: number) {
-    var dur
-    switch (service) {
-      case this.SERVICE_ARCHITECTURE:
-        dur = this.duration.architecture.filter(x => x.lod == lod)
-        break;
+    if (lod != 0) {
+      var dur
+      switch (service) {
+        case this.SERVICE_ARCHITECTURE:
+          dur = this.duration.architecture.filter(x => x.lod == lod)
+          break;
 
-      case this.SERVICE_STRUCTURE:
-        dur = this.duration.structure.filter(x => x.lod == lod)
-        break;
+        case this.SERVICE_STRUCTURE:
+          dur = this.duration.structure.filter(x => x.lod == lod)
+          break;
 
-      case this.SERVICE_MEPFS:
-        dur = this.duration.mepfs.filter(x => x.lod == lod)
-        break;
+        case this.SERVICE_MEPFS:
+          dur = this.duration.mepfs.filter(x => x.lod == lod)
+          break;
 
-      default:
-        dur = this.duration.architecture.filter(x => x.lod == lod)
-        break;
+        default:
+          dur = this.duration.architecture.filter(x => x.lod == lod)
+          break;
+      }
+      let dur2 = dur[0].months.filter(x => x.floorArea == floorArea)
+      return dur2[0].month
+    } else {
+      return 0
     }
-    let dur2 = dur[0].months.filter(x => x.floorArea == floorArea)
-    return dur2[0].month
   }
 
   getManpower(service: string, floorArea: string, lod: number) {

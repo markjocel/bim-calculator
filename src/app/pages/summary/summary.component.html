@@ -1,1 +1,169 @@
-<p>summary works!</p>
+<div class="summary-container">
+    <div class="summary">
+        <h2>Cost Summary</h2>
+        <div class="client-project-info">
+            <div class="client">
+                <p class="bold">
+                    Client
+                </p>
+                <p>{{data.form.full_name}}</p>
+                <p>{{data.form.contact_number}}</p>
+                <p>{{data.form.email}}</p>
+                <p>{{data.form.address}}</p>
+            </div>
+            <div class="project">
+                <p class="bold">
+                    Project Information
+                </p>
+                <p>{{data.form.project_type}}</p>
+                <p>{{data.form.project_floor_area}} SQM</p>
+                <p>{{data.form.project_location}}</p>
+            </div>
+        </div>
+
+        <div class="scope">
+            <h3>Scope of Work</h3>
+
+            <div class="d-flex">
+                <div>
+                    <h4>3D BIM Modelling and Coordination Services</h4>
+                    <div>
+                        <span class="label">Architecture: </span><span
+                            class="item">{{data.form.architecture.text}}</span>
+                    </div>
+                    <div>
+                        <span class="label">Structure: </span><span class="item">{{data.form.structure.text}}</span>
+                    </div>
+                    <div>
+                        <span class="label">MEPFS: </span><span class="item">{{data.form.mepfs.text}}</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Drawing Production</h4>
+                    <div>
+                        <span class="label">Choice: </span><span
+                            class="item">{{data.form.drawing_production.text}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="breakdown">
+            <h3>Scope of Work</h3>
+
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th width="40%">Line Total</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            Architecture 3D Modelling and Coordination
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.architectureTotal | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            Structure 3D Modelling and Coordination
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.structureTotal | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            MEPFS 3D Modelling and Coordination
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.mepfsTotal | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            BIM Management
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.managementTotal | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            Hardware and Software
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.hardwareSoftwareTotal | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            Drawing Production
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.drawingTotal | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="item">
+                            Abortive Costs
+                        </div>
+                    </td>
+                    <td>
+                        <div class="item">
+                            <span class="peso">₱</span>
+                            {{data.abortCosts | number : '5.2-2'}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="total-amount">
+                <p>Total Amount</p>
+
+                <p class="amount">₱{{data.overallTotal | number : '5.2-2'}}</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -33,28 +33,29 @@
                                 <label for="">Architecture*</label>
                                 <select formControlName="architecture" name="" id="">
                                     <option value="" hidden>Select</option>
-                                    <option *ngFor="let opt of options.works" value="{{opt}}">{{opt}}</option>
+                                    <option *ngFor="let opt of options.works" [ngValue]="opt">{{opt.text}}</option>
                                 </select>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Structure*</label>
                                 <select formControlName="structure" name="" id="">
                                     <option value="" hidden>Select</option>
-                                    <option *ngFor="let opt of options.works" value="{{opt}}">{{opt}}</option>
+                                    <option *ngFor="let opt of options.works" [ngValue]="opt">{{opt.text}}</option>
                                 </select>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">MEPFS*</label>
                                 <select formControlName="mepfs" name="" id="">
                                     <option value="" hidden>Select</option>
-                                    <option *ngFor="let opt of options.works" value="{{opt}}">{{opt}}</option>
+                                    <option *ngFor="let opt of options.works" [ngValue]="opt">{{opt.text}}</option>
                                 </select>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Drawing Production*</label>
                                 <select formControlName="drawing_production" name="" id="">
                                     <option value="" hidden>Select</option>
-                                    <option *ngFor="let opt of options.drawing_production" value="{{opt}}">{{opt}}
+                                    <option *ngFor="let opt of options.drawing_production" [ngValue]="opt">
+                                        {{opt.text}}
                                     </option>
                                 </select>
                             </div>
@@ -91,8 +92,11 @@
             <div class="partial-result">
                 <p>Your total payment will be</p>
                 <h1>
-                    00000
+                    <span class="peso">₱</span>
+                    {{totalPayment | number : '5.2-2'}}
                 </h1>
+
+                <button (click)="showFullSummary()">Show Summary</button>
             </div>
         </div>
     </div>

@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  data: any
+  constructor() {
+    this.data = history.state.data
+    console.warn(history.state.data)
+
+    this.data = JSON.parse(localStorage.getItem("computations")!)
+  }
 
   ngOnInit(): void {
   }
