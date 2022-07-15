@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ComputeManagerService } from './compute-manager.service';
+import { ComputeMepfsService } from './compute-mepfs.service';
+import { ComputeStructureService } from './compute-structure.service';
+import { NewComputeService } from './new-compute.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +11,11 @@ import { FormGroup } from '@angular/forms';
 
 export class ComputeService {
 
-  constructor() { }
+  constructor(private computeArchitectureService: NewComputeService,
+    private computeStructureService: ComputeStructureService,
+    private computeMepfsService: ComputeMepfsService,
+    private computeManagerService: ComputeManagerService
+  ) { }
 
   SERVICE_ARCHITECTURE = 'architecture'
   SERVICE_STRUCTURE = 'structure'
@@ -40,7 +48,6 @@ export class ComputeService {
     }
   }
 
-
   manpower = {
     architecture: [
       {
@@ -48,24 +55,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
@@ -77,24 +88,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 3,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 4,
             coordinator: 0,
             manager: 1,
@@ -106,24 +121,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 3,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 4,
             coordinator: 0,
             manager: 1,
@@ -136,24 +155,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 4,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
@@ -165,24 +188,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 6,
             coordinator: 1,
             manager: 1,
@@ -194,24 +221,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 6,
             coordinator: 1,
             manager: 1,
@@ -225,24 +256,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
@@ -254,24 +289,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 3,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 4,
             coordinator: 0,
             manager: 1,
@@ -283,24 +322,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 3,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 4,
             coordinator: 0,
             manager: 1,
@@ -313,24 +356,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 4,
             coordinator: 1,
             manager: 1,
@@ -342,24 +389,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 4,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
@@ -371,24 +422,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 1,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 4,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
@@ -402,24 +457,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 0,
             coordinator: 0,
             manager: 0,
@@ -431,24 +490,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 4,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 5,
             coordinator: 0,
             manager: 1,
@@ -460,24 +523,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 2,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 4,
             coordinator: 0,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 5,
             coordinator: 0,
             manager: 1,
@@ -490,24 +557,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 2,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 8,
             coordinator: 1,
             manager: 1,
@@ -519,24 +590,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 2,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 10,
             coordinator: 1,
             manager: 1,
@@ -548,24 +623,28 @@ export class ComputeService {
         man: [
           {
             floorArea: this.floorAreas.first,
+            floorAreaValue: 500,
             modeler: 2,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.second,
+            floorAreaValue: 1000,
             modeler: 3,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.third,
+            floorAreaValue: 5000,
             modeler: 5,
             coordinator: 1,
             manager: 1,
           },
           {
             floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000,
             modeler: 10,
             coordinator: 1,
             manager: 1,
@@ -580,56 +659,128 @@ export class ComputeService {
       {
         lod: 0,
         months: [
-          { floorArea: this.floorAreas.first, month: 0 },
-          { floorArea: this.floorAreas.second, month: 0, },
-          { floorArea: this.floorAreas.third, month: 0, },
-          { floorArea: this.floorAreas.fourth, month: 0 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 0
+          },
         ]
       },
       {
         lod: 100,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 2, },
-          { floorArea: this.floorAreas.third, month: 3, },
-          { floorArea: this.floorAreas.fourth, month: 5 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 2,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 5
+          },
         ]
       },
       {
         lod: 200,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 2, },
-          { floorArea: this.floorAreas.third, month: 3, },
-          { floorArea: this.floorAreas.fourth, month: 5 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 2,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 5
+          },
         ]
       },
 
       {
         lod: 300,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 2, },
-          { floorArea: this.floorAreas.third, month: 4, },
-          { floorArea: this.floorAreas.fourth, month: 6 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 2,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 6
+          },
         ]
       },
       {
         lod: 400,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 4, },
-          { floorArea: this.floorAreas.third, month: 5, },
-          { floorArea: this.floorAreas.fourth, month: 8 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 5,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 8
+          },
         ]
       },
       {
         lod: 500,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 4, },
-          { floorArea: this.floorAreas.third, month: 5, },
-          { floorArea: this.floorAreas.fourth, month: 8 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 5,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 8
+          },
         ]
       },
     ],
@@ -637,56 +788,128 @@ export class ComputeService {
       {
         lod: 0,
         months: [
-          { floorArea: this.floorAreas.first, month: 0 },
-          { floorArea: this.floorAreas.second, month: 0, },
-          { floorArea: this.floorAreas.third, month: 0, },
-          { floorArea: this.floorAreas.fourth, month: 0 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 0
+          },
         ]
       },
       {
         lod: 100,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 2, },
-          { floorArea: this.floorAreas.third, month: 3, },
-          { floorArea: this.floorAreas.fourth, month: 5 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 2,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 5
+          },
         ]
       },
       {
         lod: 200,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 2, },
-          { floorArea: this.floorAreas.third, month: 3, },
-          { floorArea: this.floorAreas.fourth, month: 5 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 2,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 5
+          },
         ]
       },
 
       {
         lod: 300,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 2, },
-          { floorArea: this.floorAreas.third, month: 3, },
-          { floorArea: this.floorAreas.fourth, month: 6 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 2,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 6
+          },
         ]
       },
       {
         lod: 400,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 3, },
-          { floorArea: this.floorAreas.third, month: 4, },
-          { floorArea: this.floorAreas.fourth, month: 7 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 7
+          },
         ]
       },
       {
         lod: 500,
         months: [
-          { floorArea: this.floorAreas.first, month: 1 },
-          { floorArea: this.floorAreas.second, month: 3, },
-          { floorArea: this.floorAreas.third, month: 4, },
-          { floorArea: this.floorAreas.fourth, month: 7 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 1
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 7
+          },
         ]
       },
     ],
@@ -694,230 +917,908 @@ export class ComputeService {
       {
         lod: 0,
         months: [
-          { floorArea: this.floorAreas.first, month: 0 },
-          { floorArea: this.floorAreas.second, month: 0, },
-          { floorArea: this.floorAreas.third, month: 0, },
-          { floorArea: this.floorAreas.fourth, month: 0 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 0
+          },
         ]
       },
       {
         lod: 100,
         months: [
-          { floorArea: this.floorAreas.first, month: 2 },
-          { floorArea: this.floorAreas.second, month: 3, },
-          { floorArea: this.floorAreas.third, month: 5, },
-          { floorArea: this.floorAreas.fourth, month: 6 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 2
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 5,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 6
+          },
         ]
       },
       {
         lod: 200,
         months: [
-          { floorArea: this.floorAreas.first, month: 2 },
-          { floorArea: this.floorAreas.second, month: 3, },
-          { floorArea: this.floorAreas.third, month: 5, },
-          { floorArea: this.floorAreas.fourth, month: 6 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 2
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 3,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 5,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 6
+          },
         ]
       },
 
       {
         lod: 300,
         months: [
-          { floorArea: this.floorAreas.first, month: 2 },
-          { floorArea: this.floorAreas.second, month: 4, },
-          { floorArea: this.floorAreas.third, month: 6, },
-          { floorArea: this.floorAreas.fourth, month: 8 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 2
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 6,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 8
+          },
         ]
       },
       {
         lod: 400,
         months: [
-          { floorArea: this.floorAreas.first, month: 2 },
-          { floorArea: this.floorAreas.second, month: 4, },
-          { floorArea: this.floorAreas.third, month: 6, },
-          { floorArea: this.floorAreas.fourth, month: 9 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 2
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 6,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 9
+          },
         ]
       },
       {
         lod: 500,
         months: [
-          { floorArea: this.floorAreas.first, month: 2 },
-          { floorArea: this.floorAreas.second, month: 4, },
-          { floorArea: this.floorAreas.third, month: 6, },
-          { floorArea: this.floorAreas.fourth, month: 9 },
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, month: 2
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, month: 4,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, month: 6,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, month: 9
+          },
         ]
       },
     ],
   }
 
-  costPerLod = {
+  yValues = {
     architecture: [
       {
         lod: 0,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 0 },
-          { floorArea: this.floorAreas.second, cost: 0, },
-          { floorArea: this.floorAreas.third, cost: 0, },
-          { floorArea: this.floorAreas.fourth, cost: 0 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 0
+          },
         ]
       },
       {
         lod: 100,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 23243 },
-          { floorArea: this.floorAreas.second, cost: 1348094, },
-          { floorArea: this.floorAreas.third, cost: 354456, },
-          { floorArea: this.floorAreas.fourth, cost: 464860 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 139,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 29,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 51
+          },
         ]
       },
       {
         lod: 200,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 23243 },
-          { floorArea: this.floorAreas.second, cost: 1348094, },
-          { floorArea: this.floorAreas.third, cost: 354456, },
-          { floorArea: this.floorAreas.fourth, cost: 464860 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 139,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 29,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 51
+          },
         ]
       },
 
       {
         lod: 300,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 55530 },
-          { floorArea: this.floorAreas.second, cost: 2877068, },
-          { floorArea: this.floorAreas.third, cost: 872291, },
-          { floorArea: this.floorAreas.fourth, cost: 891012 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 297,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 74,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 78
+          },
         ]
       },
       {
         lod: 400,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 55530 },
-          { floorArea: this.floorAreas.second, cost: 6753676, },
-          { floorArea: this.floorAreas.third, cost: 1160568, },
-          { floorArea: this.floorAreas.fourth, cost: 1373960 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 705,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 84,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 126
+          },
         ]
       },
       {
         lod: 500,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 55530 },
-          { floorArea: this.floorAreas.second, cost: 6753676, },
-          { floorArea: this.floorAreas.third, cost: 1160568, },
-          { floorArea: this.floorAreas.fourth, cost: 1373960 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 705,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 84,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 126
+          },
         ]
       },
     ],
     structure: [
       {
         lod: 0,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 0 },
-          { floorArea: this.floorAreas.second, cost: 0, },
-          { floorArea: this.floorAreas.third, cost: 0, },
-          { floorArea: this.floorAreas.fourth, cost: 0 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 0
+          },
         ]
       },
       {
         lod: 100,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 23243 },
-          { floorArea: this.floorAreas.second, cost: 1348094, },
-          { floorArea: this.floorAreas.third, cost: 354456, },
-          { floorArea: this.floorAreas.fourth, cost: 464860 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 139,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 29,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 51
+          },
         ]
       },
       {
         lod: 200,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 23243 },
-          { floorArea: this.floorAreas.second, cost: 1348094, },
-          { floorArea: this.floorAreas.third, cost: 354456, },
-          { floorArea: this.floorAreas.fourth, cost: 464860 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 139,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 29,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 51
+          },
         ]
       },
 
       {
         lod: 300,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 55530 },
-          { floorArea: this.floorAreas.second, cost: 1993834, },
-          { floorArea: this.floorAreas.third, cost: 491676, },
-          { floorArea: this.floorAreas.fourth, cost: 751554 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 204,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 37,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 89
+          },
         ]
       },
       {
         lod: 400,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 55530 },
-          { floorArea: this.floorAreas.second, cost: 4815372, },
-          { floorArea: this.floorAreas.third, cost: 744771, },
-          { floorArea: this.floorAreas.fourth, cost: 1039514 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 501,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 49,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 108
+          },
         ]
       },
       {
         lod: 500,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 55530 },
-          { floorArea: this.floorAreas.second, cost: 4815372, },
-          { floorArea: this.floorAreas.third, cost: 744771, },
-          { floorArea: this.floorAreas.fourth, cost: 1039514 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 501,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 49,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 108
+          },
         ]
       },
     ],
     mepfs: [
       {
         lod: 0,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 0 },
-          { floorArea: this.floorAreas.second, cost: 0, },
-          { floorArea: this.floorAreas.third, cost: 0, },
-          { floorArea: this.floorAreas.fourth, cost: 0 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 0
+          },
         ]
       },
       {
         lod: 100,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 92972 },
-          { floorArea: this.floorAreas.second, cost: 976206, },
-          { floorArea: this.floorAreas.third, cost: 871613, },
-          { floorArea: this.floorAreas.fourth, cost: 697290 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 93,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 81,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 46
+          },
         ]
       },
       {
         lod: 200,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 92972 },
-          { floorArea: this.floorAreas.second, cost: 976206, },
-          { floorArea: this.floorAreas.third, cost: 871613, },
-          { floorArea: this.floorAreas.fourth, cost: 697290 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 93,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 81,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 46
+          },
         ]
       },
 
       {
         lod: 300,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 157546 },
-          { floorArea: this.floorAreas.second, cost: 4917388, },
-          { floorArea: this.floorAreas.third, cost: 1494697, },
-          { floorArea: this.floorAreas.fourth, cost: 1745848 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 501,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 121,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 171
+          },
         ]
       },
       {
         lod: 400,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 157546 },
-          { floorArea: this.floorAreas.second, cost: 4917388, },
-          { floorArea: this.floorAreas.third, cost: 1494697, },
-          { floorArea: this.floorAreas.fourth, cost: 2382453 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 501,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 121,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 298
+          },
         ]
       },
       {
         lod: 500,
-        costs: [
-          { floorArea: this.floorAreas.first, cost: 157546 },
-          { floorArea: this.floorAreas.second, cost: 4917388, },
-          { floorArea: this.floorAreas.third, cost: 1494697, },
-          { floorArea: this.floorAreas.fourth, cost: 2382453 },
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 501,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 121,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 298
+          },
+        ]
+      },
+    ],
+  }
+
+  bValues = {
+    architecture: [
+      {
+        lod: 0,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 0
+          },
+        ]
+      },
+      {
+        lod: 100,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 23243
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 63918,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -46486
+          },
+        ]
+      },
+      {
+        lod: 200,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 23243
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 63918,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -46486
+          },
+        ]
+      },
+
+      {
+        lod: 300,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 55530
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -92972,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 129781,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 111060
+          },
+        ]
+      },
+      {
+        lod: 400,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 55530
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -297004,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 324453,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 111060
+          },
+        ]
+      },
+      {
+        lod: 500,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 55530
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -297004,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 324453,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 111060
+          },
+        ]
+      },
+    ],
+    structure: [
+      {
+        lod: 0,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 0
+          },
+        ]
+      },
+      {
+        lod: 100,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 23243
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 63918,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -46486
+          },
+        ]
+      },
+      {
+        lod: 200,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 23243
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 63918,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -46486
+          },
+        ]
+      },
+
+      {
+        lod: 300,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 55530
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 120421,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -139458
+          },
+        ]
+      },
+      {
+        lod: 400,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 55530
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -194988,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 257301,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -37442
+          },
+        ]
+      },
+      {
+        lod: 500,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 55530
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -194988,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 257301,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -37442
+          },
+        ]
+      },
+    ],
+    mepfs: [
+      {
+        lod: 0,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 0
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 0,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 0
+          },
+        ]
+      },
+      {
+        lod: 100,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 92972
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 58108,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 232430
+          },
+        ]
+      },
+      {
+        lod: 200,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 92972
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: 46486,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 58108,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 232430
+          },
+        ]
+      },
+
+      {
+        lod: 300,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 157546
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -92972,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 287327,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: 36176
+          },
+        ]
+      },
+      {
+        lod: 400,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 157546
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -92972,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 287327,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -600429
+          },
+        ]
+      },
+      {
+        lod: 500,
+        values: [
+          {
+            floorArea: this.floorAreas.first,
+            floorAreaValue: 500, value: 157546
+          },
+          {
+            floorArea: this.floorAreas.second,
+            floorAreaValue: 1000, value: -92972,
+          },
+          {
+            floorArea: this.floorAreas.third,
+            floorAreaValue: 5000, value: 287327,
+          },
+          {
+            floorArea: this.floorAreas.fourth,
+            floorAreaValue: 10000, value: -600429
+          },
         ]
       },
     ],
@@ -925,15 +1826,6 @@ export class ComputeService {
 
   computeCost(form: FormGroup) {
 
-  }
-
-  setSoftwareCost(cost: number) {
-    console.warn(this.procurement.software)
-    this.procurement.software.revit = 0
-  }
-
-  getSoftwareCost() {
-    console.warn(this.procurement.software)
   }
 
   getFloorArea(sqm: number): string {
@@ -951,209 +1843,84 @@ export class ComputeService {
     }
   }
 
-  computeArchitecture(floorArea: string, lod: number) {
-    if (floorArea == this.floorAreas.too_big) {
-      return 0
-    } else if (lod == 0) {
-      return 0
-    } else {
-      let duration = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, lod)
-      let salary = this.getManpower(this.SERVICE_ARCHITECTURE, floorArea, lod)
-      console.warn(salary * duration)
-      return salary * duration
-      // Manpower modelercoord * duration based on lod and floor area
-    }
+  computeArchitecture(floorArea: string, lod: number, sqm: number) {
+    var modellerCost = this.computeArchitectureService.getArchitectureModelerValue(lod, floorArea, sqm)
+    var coordinatorCost = this.computeArchitectureService.getArchitectureCoordinatorValue(lod, floorArea, sqm)
 
-    // NEW
-    // w38 * L35 + w59
-    // m4 - L4 / m3 - l3
-
-    // Get cost per lod
-    // if (floorArea == this.floorAreas.too_big) {
-    //   return 0
-    // } else if (lod == 0) {
-    //   return 0
-    // } else {
-    //   return this.costPerLod.architecture.filter(x => x.lod == lod)[0].costs.filter(x => x.floorArea == floorArea)[0].cost
-    //   // let duration = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, lod)
-    //   // let salary = this.getManpower(this.SERVICE_ARCHITECTURE, floorArea, lod)
-    //   // console.warn(salary * duration)
-    //   // return salary * duration
-    //   // Manpower modelercoord * duration based on lod and floor area
-    // }
-
+    var ret = modellerCost + coordinatorCost
+    console.log("FINAL ARCHITECTURE:", ret)
+    return ret
   }
 
-  computeStructure(floorArea: string, lod: number) {
-    if (floorArea == this.floorAreas.too_big) {
-      return 0
-    } else if (lod == 0) {
-      return 0
-    } else {
-      let duration = this.getDuration(this.SERVICE_STRUCTURE, floorArea, lod)
-      let salary = this.getManpower(this.SERVICE_STRUCTURE, floorArea, lod)
-      console.warn(salary * duration)
-      return salary * duration
-      // Manpower modelercoord * duration based on lod and floor area
-    }
+  computeStructure(floorArea: string, lod: number, sqm: number) {
+    var modellerCost = this.computeStructureService.getStructureModelerValue(lod, floorArea, sqm)
+    var coordinatorCost = this.computeStructureService.getStructureCoordinatorValue(lod, floorArea, sqm)
+
+    var ret = modellerCost + coordinatorCost
+    console.log("FINAL STRUCTURE:", ret)
+    return ret
   }
 
-  computeMepfs(floorArea: string, lod: number) {
-    if (floorArea == this.floorAreas.too_big) {
-      return 0
-    } else if (lod == 0) {
-      return 0
-    } else {
-      let duration = this.getDuration(this.SERVICE_MEPFS, floorArea, lod)
-      let salary = this.getManpower(this.SERVICE_MEPFS, floorArea, lod)
-      console.warn(salary * duration)
-      return salary * duration
-      // Manpower modelercoord * duration based on lod and floor area
-    }
+  computeMepfs(floorArea: string, lod: number, sqm: number) {
+    var modellerCost = this.computeMepfsService.getMepfsModelerValue(lod, floorArea, sqm)
+    var coordinatorCost = this.computeMepfsService.getMepfsCoordinatorValue(lod, floorArea, sqm)
+
+    var ret = modellerCost + coordinatorCost
+    console.log("FINAL MEPFS:", ret)
+    return ret
   }
 
-  computeManager(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number,) {
+  computeManager(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number, sqm: number) {
     // Manager * max duration of services
-    let a = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, architectureLod)
-    let s = this.getDuration(this.SERVICE_STRUCTURE, floorArea, structureLod)
-    let m = this.getDuration(this.SERVICE_MEPFS, floorArea, mepfsLod)
+    let maxLod = Math.max(architectureLod, structureLod, mepfsLod)
 
-    let maxDuration = Math.max(a, s, m)
-    let managerSalary = this.procurement.manpower.manager
-    console.warn(managerSalary * maxDuration)
-    return managerSalary * maxDuration
+    var ret = this.computeManagerService.getManagerValue(maxLod, floorArea, sqm)
+    console.log("FINAL Manager:", ret)
+    return ret
   }
 
-  computeHardwareSoftware(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number,) {
-    // totalSoftware * totalArchitectureEmployeeNumber * architectureDuration
-    // structureDuration * totalStructureEmployeeNumber * totalSoftware
-    // totalSoftware * totalMepfsEmployeeNumber * mepfsDuration
-    // .25 * totalEquipment * totalEmployeeNumber
-    // var software = this.procurement.software
-    // var totalSoftware = software.revit + software.cad + software.data_env + software.navis
+  computeSoftware(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number, sqm: number) {
+    let maxLod = Math.max(architectureLod, structureLod, mepfsLod)
 
-    // var totalArchitectureEmployee = this.manpower.architecture.filter(x => x.lod == architectureLod)[0].man.filter(x => x.floorArea == floorArea)
-    // var totalArchitectureEmployeeNumber = totalArchitectureEmployee[0].modeler + totalArchitectureEmployee[0].coordinator + totalArchitectureEmployee[0].manager
+    var totalArchitectureModelerSoftwareCost = this.computeArchitectureService.getArchitectureModelerSoftwareValue(architectureLod, floorArea, sqm)
+    var totalStructureModelerSoftwareCost = this.computeStructureService.getStructureModelerSoftwareValue(structureLod, floorArea, sqm)
+    var totalMepfsModelerSoftwareCost = this.computeMepfsService.getMepfsModelerSoftwareValue(mepfsLod, floorArea, sqm)
 
-    // var architectureDuration = this.getDuration(this.SERVICE_ARCHITECTURE, floorArea, architectureLod)
+    var totalModelerSoftwareCost = totalArchitectureModelerSoftwareCost + totalStructureModelerSoftwareCost + totalMepfsModelerSoftwareCost
 
-    // var structureDuration = this.getDuration(this.SERVICE_STRUCTURE, floorArea, structureLod)
+    var totalArchitectureCoordinatorSoftwareCost = this.computeArchitectureService.getArchitectureCoordinatorSoftwareValue(architectureLod, floorArea, sqm)
+    var totalStructureCoordinatorSoftwareCost = this.computeStructureService.getStructureCoordinatorSoftwareValue(structureLod, floorArea, sqm)
+    var totalMepfsCoordinatorSoftwareCost = this.computeMepfsService.getMepfsCoordinatorSoftwareValue(mepfsLod, floorArea, sqm)
 
-    // var totalStructureEmployee = this.manpower.structure.filter(x => x.lod == structureLod)[0].man.filter(x => x.floorArea == floorArea)
-    // var totalStructureEmployeeNumber = totalStructureEmployee[0].modeler + totalStructureEmployee[0].coordinator
+    var totalCoordinatorSoftwareCost = totalArchitectureCoordinatorSoftwareCost + totalStructureCoordinatorSoftwareCost + totalMepfsCoordinatorSoftwareCost
 
-    // var totalMepfsEmployee = this.manpower.mepfs.filter(x => x.lod == mepfsLod)[0].man.filter(x => x.floorArea == floorArea)
-    // var totalMepfsEmployeeNumber = totalMepfsEmployee[0].modeler + totalMepfsEmployee[0].coordinator
+    var managerSoftwareCost = this.computeManagerService.getManagerSoftwareValue(maxLod, floorArea, sqm)
 
-    // var mepfsDuration = this.getDuration(this.SERVICE_MEPFS, floorArea, mepfsLod)
-
-    // var totalEquipment = this.procurement.equipment.laptop
-
-    // var totalEmployeeNumber = totalArchitectureEmployeeNumber + totalStructureEmployeeNumber + totalMepfsEmployeeNumber
-
-    // var totalHardwareSoftware = (totalSoftware * totalArchitectureEmployeeNumber * architectureDuration) +
-    //   (structureDuration * totalStructureEmployeeNumber * totalSoftware) +
-    //   (totalSoftware * totalMepfsEmployeeNumber * mepfsDuration) +
-    //   (.25 * totalEquipment * totalEmployeeNumber)
-    // console.warn(totalHardwareSoftware)
-    // return totalHardwareSoftware
-
-    var totalSoftware = this.computeSoftware(floorArea, architectureLod, structureLod, mepfsLod)
-    var totalHardware = this.computeHardware(floorArea, architectureLod, structureLod, mepfsLod)
-
-    return totalSoftware + totalHardware
+    var ret = totalModelerSoftwareCost + totalCoordinatorSoftwareCost + managerSoftwareCost
+    console.log("FINAL Software:", ret)
+    return ret
   }
 
-  computeSoftware(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number,) {
-    // archilod duration * total software +
-    // struclod duration * total software +
-    // meplod duration * total software
-    var software = this.procurement.software
-    var totalSoftware = software.revit + software.cad + software.data_env + software.navis
+  computeHardware(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number, sqm: number) {
+    let maxLod = Math.max(architectureLod, structureLod, mepfsLod)
 
-    var architechDuration = this.duration.architecture.filter(x => x.lod == architectureLod)[0].months.filter(x => x.floorArea == floorArea)[0].month
-    var structureDuration = this.duration.structure.filter(x => x.lod == structureLod)[0].months.filter(x => x.floorArea == floorArea)[0].month
-    var mepfsDuration = this.duration.mepfs.filter(x => x.lod == mepfsLod)[0].months.filter(x => x.floorArea == floorArea)[0].month
+    var totalArchitectureModelerEquipmentCost = this.computeArchitectureService.getArchitectureModelerEquipmentValue(architectureLod, floorArea, sqm)
+    var totalStructureModelerEquipmentCost = this.computeStructureService.getStructureModelerEquipmentValue(structureLod, floorArea, sqm)
+    var totalMepfsModelerEquipmenteCost = this.computeMepfsService.getMepfsModelerEquipmentValue(mepfsLod, floorArea, sqm)
 
-    var totalSoftware = (architechDuration * totalSoftware) +
-      (structureDuration * totalSoftware) +
-      (mepfsDuration * totalSoftware)
+    var totalModelerEquipmentCost = totalArchitectureModelerEquipmentCost + totalStructureModelerEquipmentCost + totalMepfsModelerEquipmenteCost
 
-    return totalSoftware
-  }
+    var totalArchitectureCoordinatorEquipmentCost = this.computeArchitectureService.getArchitectureCoordinatorEquipmentValue(architectureLod, floorArea, sqm)
+    var totalStructureCoordinatorEquipmentCost = this.computeStructureService.getStructureCoordinatorEquipmentValue(structureLod, floorArea, sqm)
+    var totalMepfsCoordinatorEquipmentCost = this.computeMepfsService.getMepfsCoordinatorEquipmentValue(mepfsLod, floorArea, sqm)
 
-  computeHardware(floorArea: string, architectureLod: number, structureLod: number, mepfsLod: number,) {
-    // archilod duration * total equipment +
-    // struclod duration * total equipment +
-    // meplod duration * total equipment
-    var totalEquipment = this.procurement.equipment.laptop
+    var totalCoordinatorEquipmentCost = totalArchitectureCoordinatorEquipmentCost + totalStructureCoordinatorEquipmentCost + totalMepfsCoordinatorEquipmentCost
 
-    var architechDuration = this.duration.architecture.filter(x => x.lod == architectureLod)[0].months.filter(x => x.floorArea == floorArea)[0].month
-    var structureDuration = this.duration.structure.filter(x => x.lod == structureLod)[0].months.filter(x => x.floorArea == floorArea)[0].month
-    var mepfsDuration = this.duration.mepfs.filter(x => x.lod == mepfsLod)[0].months.filter(x => x.floorArea == floorArea)[0].month
+    var managerEquipmentCost = this.computeManagerService.getManagerEquipmentValue(maxLod, floorArea, sqm)
 
-    var totalHardware = (architechDuration * totalEquipment) +
-      (structureDuration * totalEquipment) +
-      (mepfsDuration * totalEquipment)
-
-    return totalHardware
-  }
-
-  getDuration(service: string, floorArea: string, lod: number) {
-    if (lod != 0) {
-      var dur
-      switch (service) {
-        case this.SERVICE_ARCHITECTURE:
-          dur = this.duration.architecture.filter(x => x.lod == lod)
-          break;
-
-        case this.SERVICE_STRUCTURE:
-          dur = this.duration.structure.filter(x => x.lod == lod)
-          break;
-
-        case this.SERVICE_MEPFS:
-          dur = this.duration.mepfs.filter(x => x.lod == lod)
-          break;
-
-        default:
-          dur = this.duration.architecture.filter(x => x.lod == lod)
-          break;
-      }
-      let dur2 = dur[0].months.filter(x => x.floorArea == floorArea)
-      return dur2[0].month
-    } else {
-      return 0
-    }
-  }
-
-  getManpower(service: string, floorArea: string, lod: number) {
-    var lodmanpower
-    switch (service) {
-      case this.SERVICE_ARCHITECTURE:
-        lodmanpower = this.manpower.architecture.filter(x => x.lod == lod)
-        break;
-
-      case this.SERVICE_STRUCTURE:
-        lodmanpower = this.manpower.structure.filter(x => x.lod == lod)
-        break;
-
-      case this.SERVICE_MEPFS:
-        lodmanpower = this.manpower.mepfs.filter(x => x.lod == lod)
-        break;
-
-      default:
-        lodmanpower = this.manpower.architecture.filter(x => x.lod == lod)
-        break;
-    }
-
-    var manpower = lodmanpower[0].man.filter(x => x.floorArea == floorArea)
-
-    const modeler = manpower[0].modeler
-    const coordinator = manpower[0].coordinator
-
-    const modelerSalary = modeler * this.procurement.manpower.modeler
-    const coordinatorSalary = coordinator * this.procurement.manpower.coord
-    return modelerSalary + coordinatorSalary
+    var ret = totalModelerEquipmentCost + totalCoordinatorEquipmentCost + managerEquipmentCost
+    console.log("FINAL Equipment:", ret)
+    return ret
   }
 
 }

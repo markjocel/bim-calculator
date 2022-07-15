@@ -88,6 +88,7 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
     // this.computeService.setSoftwareCost(1000);
     // this.computeService.getSoftwareCost()
+    this.computeService.computeArchitecture('third', 300, 1567)
   }
 
   submit(form: FormGroup) {
@@ -108,11 +109,12 @@ export class InputComponent implements OnInit {
       } else {
         this.submitted = true
         // valid response
-        var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod)
-        var structureTotal = this.computeService.computeStructure(floorArea, structureLod)
-        var mepfsTotal = this.computeService.computeMepfs(floorArea, architectureLod)
-        var managementTotal = this.computeService.computeManager(floorArea, architectureLod, structureLod, mepfsLod)
-        var hardwareSoftwareTotal = this.computeService.computeHardwareSoftware(floorArea, architectureLod, structureLod, mepfsLod)
+        var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod, form.value.project_floor_area)
+        var structureTotal = this.computeService.computeStructure(floorArea, structureLod, form.value.project_floor_area)
+        var mepfsTotal = this.computeService.computeMepfs(floorArea, architectureLod, form.value.project_floor_area)
+        var managementTotal = this.computeService.computeManager(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area)
+        var softwareTotal = this.computeService.computeSoftware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area)
+        var equipmentTotal = this.computeService.computeHardware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area)
         var drawingTotal
         if (drawingProduction == 1) {
           drawingTotal = (architectureTotal + structureTotal + mepfsTotal + managementTotal) * .2
@@ -121,7 +123,7 @@ export class InputComponent implements OnInit {
         }
         var abortCosts = (architectureTotal + structureTotal + mepfsTotal + managementTotal) * .1
 
-        var overallTotal = architectureTotal + structureTotal + mepfsTotal + managementTotal + hardwareSoftwareTotal + drawingTotal + abortCosts
+        var overallTotal = architectureTotal + structureTotal + mepfsTotal + managementTotal + softwareTotal + equipmentTotal + drawingTotal + abortCosts
         this.totalPayment = overallTotal
 
         this.computations = {
@@ -130,7 +132,8 @@ export class InputComponent implements OnInit {
           structureTotal: structureTotal,
           mepfsTotal: mepfsTotal,
           managementTotal: managementTotal,
-          hardwareSoftwareTotal: hardwareSoftwareTotal,
+          softwareTotal: softwareTotal,
+          equipmentTotal: equipmentTotal,
           drawingTotal: drawingTotal,
           abortCosts: abortCosts,
           overallTotal: overallTotal
