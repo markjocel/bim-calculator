@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ComputeService } from 'src/app/compute.service';
+import { Procurement } from 'src/app/procurement.model';
+import { ProcurementService } from 'src/app/procurement.service';
 
 @Component({
   selector: 'app-input',
@@ -16,18 +18,50 @@ export class InputComponent implements OnInit {
 
   options = {
     project_type: [
-      'Civil',
-      'Residential/Townhouses',
-      'High-Rise Towers',
-      'Mid-rise Buildings',
-      'HealthCare',
-      'Educational',
-      'Data Center',
-      'Exhibition Hall',
-      'Laboratory',
-      'Warehouse',
-      'Workshop',
-      'Theater',
+      {
+        value: .7,
+        text: 'Residential/Townhouses'
+      },
+      {
+        value: 1,
+        text: 'High-Rise Towers'
+      },
+      {
+        value: 1,
+        text: 'Mid-rise Buildings'
+      },
+      {
+        value: 1,
+        text: 'HealthCare',
+      },
+      {
+        value: .7,
+        text: 'Educational',
+      },
+      {
+        value: .8,
+        text: 'Data Center',
+      },
+      {
+        value: 1,
+        text: 'Exhibition Hall',
+      },
+      {
+        value: 1,
+        text: 'Laboratory',
+      },
+      {
+        value: .7,
+        text: 'Warehouse',
+      },
+      {
+        value: .7,
+        text: 'Workshop',
+      },
+      {
+        value: 1,
+        text: 'Theater',
+      }
     ],
     works: [
       {
@@ -69,7 +103,16 @@ export class InputComponent implements OnInit {
 
   submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private computeService: ComputeService, private router: Router) {
+  newProcurement!: Procurement
+  defaultProcure!: Procurement
+
+  steps: number = 1;
+
+  constructor(private formBuilder: FormBuilder,
+    private computeService: ComputeService,
+    private router: Router,
+    private procurementService: ProcurementService
+  ) {
     this.costForm = this.formBuilder.group({
       project_type: ['', Validators.required],
       project_floor_area: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*'), Validators.max(10000)])],
@@ -86,9 +129,30 @@ export class InputComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.computeService.setSoftwareCost(1000);
-    // this.computeService.getSoftwareCost()
-    this.computeService.computeArchitecture('third', 300, 1567)
+    this.procurementService.getProcurement().subscribe(x => {
+      this.defaultProcure = x
+      console.warn(x)
+    })
+
+    this.newProcurement = {
+      software: {
+        revit: 1,
+        cad: 1,
+        data_env: 1,
+        navis: 1
+      },
+      equipment: {
+        laptop: 1
+      },
+      manpower: {
+        manager: 1,
+        coordinator: 1,
+        modeler: 1
+      }
+    }
+
+    this.procurementService.setProcurement(this.newProcurement)
+    console.warn(this.defaultProcure)
   }
 
   submit(form: FormGroup) {
@@ -109,12 +173,12 @@ export class InputComponent implements OnInit {
       } else {
         this.submitted = true
         // valid response
-        var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod, form.value.project_floor_area)
-        var structureTotal = this.computeService.computeStructure(floorArea, structureLod, form.value.project_floor_area)
-        var mepfsTotal = this.computeService.computeMepfs(floorArea, architectureLod, form.value.project_floor_area)
-        var managementTotal = this.computeService.computeManager(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area)
-        var softwareTotal = this.computeService.computeSoftware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area)
-        var equipmentTotal = this.computeService.computeHardware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area)
+        var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod, form.value.project_floor_area) * form.value.project_type.value
+        var structureTotal = this.computeService.computeStructure(floorArea, structureLod, form.value.project_floor_area) * form.value.project_type.value
+        var mepfsTotal = this.computeService.computeMepfs(floorArea, architectureLod, form.value.project_floor_area) * form.value.project_type.value
+        var managementTotal = this.computeService.computeManager(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
+        var softwareTotal = this.computeService.computeSoftware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
+        var equipmentTotal = this.computeService.computeHardware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
         var drawingTotal
         if (drawingProduction == 1) {
           drawingTotal = (architectureTotal + structureTotal + mepfsTotal + managementTotal) * .2
@@ -149,6 +213,14 @@ export class InputComponent implements OnInit {
     if (this.costForm.valid && this.submitted) {
       this.router.navigate(['/summary'], { state: { data: this.computations } })
     }
+  }
+
+  back() {
+    this.steps == 1 ? null : this.steps -= 1
+  }
+
+  next() {
+    this.steps == 4 ? null : this.steps += 1
   }
 
 }

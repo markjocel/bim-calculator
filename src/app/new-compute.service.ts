@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Procurement } from './procurement.model';
+import { ProcurementService } from './procurement.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,24 +15,24 @@ export class NewComputeService {
     too_big: 'AREA IS TOO BIG'
   }
 
-  procurement = {
-    software: {
-      revit: 18699.70,
-      cad: 13117.70,
-      data_env: 6698.40,
-      navis: 7256.60,
-      // microsoft: 1228.40,
-      // pdf: 768.06
-    },
-    equipment: {
-      laptop: 70000
-    },
-    manpower: {
-      manager: 43806,
-      coordinator: 32287,
-      modeler: 23243
-    }
-  }
+  // procurement = {
+  //   software: {
+  //     revit: 18699.70,
+  //     cad: 13117.70,
+  //     data_env: 6698.40,
+  //     navis: 7256.60,
+  //     // microsoft: 1228.40,
+  //     // pdf: 768.06
+  //   },
+  //   equipment: {
+  //     laptop: 70000
+  //   },
+  //   manpower: {
+  //     manager: 43806,
+  //     coordinator: 32287,
+  //     modeler: 23243
+  //   }
+  // }
 
   manpower = {
     architecture: [
@@ -1028,7 +1030,13 @@ export class NewComputeService {
     ],
   }
 
-  constructor() { }
+  procurement!: Procurement
+
+  constructor(private procurementService: ProcurementService) {
+    this.procurementService.getProcurement().subscribe(x => {
+      this.procurement = x
+    })
+  }
 
 
   // ARCHITECTURE MODELER
