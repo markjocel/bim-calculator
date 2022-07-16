@@ -105,10 +105,7 @@
         align-items: center;
         margin-bottom: 1rem;
 
-        input[type="number"] {
-            margin-top: .5rem;
-            max-width: 150px;
-        }
+        input[type="number"] {}
     }
 
     input[type="checkbox"] {
@@ -121,6 +118,55 @@
             font-size: 1.4rem;
         }
     }
+
+    .currency-input {
+        position: relative;
+        width: 30rem;
+        display: flex;
+        margin-top: .5rem;
+
+        input {
+            padding-left: 5rem;
+            padding-right: 10rem;
+        }
+
+        &::before {
+            position: absolute;
+            content: '₱';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #bbbbbb;
+            width: 4rem;
+            border-radius: .8rem 0 0 .8rem;
+            left: 0;
+            top: 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .rate {
+            position: absolute;
+            right: 1rem;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .input-params,

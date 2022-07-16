@@ -13,7 +13,10 @@
                                     <input formControlName="revit" type="checkbox" id="revit" name="revit" value="1">
                                     <div>
                                         <span for="revit">Autodesk Revit Software & License</span><br>
-                                        <input formControlName="revit_input" type="number">
+                                        <div class="currency-input">
+                                            <input formControlName="revit_input" type="number">
+                                            <span class="rate">per month</span>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -21,39 +24,61 @@
                                     <input formControlName="cad" type="checkbox" id="cad" name="cad">
                                     <div>
                                         <span for="cad">Autodesk AutoCad Software & License</span><br>
-                                        <input formControlName="cad_input" type="number">
+                                        <div class="currency-input">
+                                            <input formControlName="cad_input" type="number">
+                                            <span class="rate">per month</span>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <input formControlName="data_env" type="checkbox" id="data_env" name="data_env">
                                     <div>
                                         <span for="data_env">Common Data Environment CDE: BIM 360</span><br>
-                                        <input formControlName="data_env_input" type="number">
+                                        <div class="currency-input">
+                                            <input formControlName="data_env_input" type="number">
+                                            <span class="rate">per month</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-flex">
                                     <input formControlName="navis" type="checkbox" id="navis" name="navis">
                                     <div>
                                         <span for="navis">Autodesk Navisworks Software & License</span><br>
-                                        <input formControlName="navis_input" type="number">
+                                        <div class="currency-input">
+                                            <input formControlName="navis_input" type="number">
+                                            <span class="rate">per month</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Laptop/Computer</label>
-                                <input formControlName="laptop" type="number">
+                                <div class="currency-input">
+                                    <input formControlName="laptop" type="number">
+                                    <span class="rate">per unit</span>
+                                </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">BIM Manager</label>
-                                <input formControlName="manager" type="number">
+                                <div class="currency-input">
+                                    <input formControlName="manager" type="number">
+                                    <span class="rate">per month</span>
+                                </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">BIM Coordinator</label>
-                                <input formControlName="coordinator" type="number">
+                                <div class="currency-input">
+                                    <input formControlName="coordinator" type="number">
+                                    <span class="rate">per month</span>
+                                </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">BIM Modeler</label>
-                                <input formControlName="modeler" type="number">
+                                <div class="currency-input">
+                                    <input formControlName="modeler" type="number">
+                                    <span class="rate">per month</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +100,7 @@
                                     placeholder="Enter total area">
                             </div>
                             <div class="col-xs-12 col-md-6">
-                                <label for="">Project Location*</label>
+                                <label for="">Project Location</label>
                                 <input formControlName="project_location" type="text"
                                     placeholder="Enter project location">
                             </div>

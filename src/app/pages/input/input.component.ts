@@ -122,7 +122,7 @@ export class InputComponent implements OnInit {
     this.costForm = this.formBuilder.group({
       project_type: ['', Validators.required],
       project_floor_area: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*'), Validators.max(10000)])],
-      project_location: ['', Validators.required],
+      project_location: [''],
       architecture: ['', Validators.required],
       structure: ['', Validators.required],
       mepfs: ['', Validators.required],

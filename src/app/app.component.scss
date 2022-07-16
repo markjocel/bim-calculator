@@ -18,4 +18,56 @@ header {
         margin-right: 1rem;
         filter: invert(100%) sepia(0%) saturate(7478%) hue-rotate(262deg) brightness(107%) contrast(105%);
     }
+
+    .item {
+        white-space: nowrap;
+        color: white;
+        margin-left: auto;
+        font-size: 1.6rem;
+        position: relative;
+        font-weight: 300;
+
+        a {
+            color: white;
+        }
+
+        &:hover {
+            font-weight: 700;
+        }
+
+        &.active {
+            font-weight: 700;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: white;
+                bottom: -3.8rem;
+                left: 0;
+                border-radius: 2px;
+            }
+        }
+
+        &::before {
+            display: block;
+            content: attr(title);
+            font-weight: bold;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            font-weight: 700;
+        }
+
+        &:last-of-type {
+            margin-left: 5rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .item {
+        display: none;
+    }
 }
