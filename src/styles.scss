@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url(./assets/styles/flexboxgrid.min.css);
 @import url(./assets/styles/normalize.css);
 
@@ -9,7 +9,7 @@ html {
 
 body {
     margin: 0%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 13px;
     color: #061237;
 
@@ -21,7 +21,165 @@ body {
 
 }
 
+$blue: #00509E;
+$dark-blue: #002447;
+$gray: #676767;
+
+.bg-gradient {
+    background: radial-gradient(at bottom left, $blue -80%, $dark-blue 80%);
+}
+
+.blue-box {
+    position: absolute;
+    content: '';
+    background-image: radial-gradient($blue 30%, transparent 30%);
+    background-position: 0 0;
+    background-size: 1rem 1rem;
+    opacity: .34;
+    z-index: -1;
+
+    &.opacity-1 {
+        opacity: 1;
+    }
+
+    &.light {
+        background-image: radial-gradient(#5BD4EF 30%, transparent 30%);
+    }
+
+    &.purple {
+        background-image: radial-gradient(#6370E2 30%, transparent 30%);
+    }
+}
+
+.ellipse {
+
+    &.light-blue {
+
+        &::before,
+        &::after {
+            background-color: #269CFC;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 7.65rem;
+        left: -28.85rem;
+        width: 57.7rem;
+        height: 57.7rem;
+        background-color: $dark-blue;
+        opacity: .11;
+        border-radius: 100%;
+        z-index: 2;
+        transform: scale(.95);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 12.4rem;
+        left: -24.35rem;
+        width: 48.7rem;
+        height: 48.7rem;
+        background-color: $dark-blue;
+        opacity: .11;
+        border-radius: 100%;
+        z-index: 2;
+        transform: scale(.95);
+    }
+}
+
+// Outline button
+.btn-outline {
+    border-radius: .5rem;
+    outline: none;
+    font-size: 1.4rem;
+    font-weight: 300;
+    padding: 1.4rem 4.7rem;
+    cursor: pointer;
+
+    &.hover-blue {
+        background-color: transparent;
+        color: $dark-blue;
+        border: 1px solid $dark-blue;
+
+        &:hover {
+            color: white;
+            background-color: $blue;
+            border: 1px solid $blue;
+
+            transition: .3s ease-in;
+        }
+    }
+
+    &.outline-hover-blue {
+        background-color: transparent;
+        color: $dark-blue;
+        border: 1px solid $blue;
+        padding: 1.4rem 2.3rem;
+
+        &:hover {
+            color: white;
+            background-color: $blue;
+            border: 1px solid $blue;
+
+            transition: .3s ease-in;
+        }
+    }
+
+    &.hover-white {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+
+        &:hover {
+            color: $dark-blue;
+            background-color: white;
+            border: 1px solid white;
+
+            transition: .3s ease-in;
+        }
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
 .container {
-    max-width: 1200px;
+    width: 1090px;
     margin: auto;
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 1336px) {
+    .container {
+        width: 80vw;
+    }
+}
+
+
+// Mobile phones
+@media (max-width: 767px) {
+    // * {
+    //     border: 1px solid red;
+    // }
+
+    html {
+        font-size: 10px;
+    }
+
+    .container {
+        width: calc(100vw - 4.2rem);
+    }
+
+    .xs-col-reverse {
+        flex-direction: column-reverse;
+    }
 }
