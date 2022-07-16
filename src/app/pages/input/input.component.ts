@@ -135,10 +135,14 @@ export class InputComponent implements OnInit {
       cad: [true],
       data_env: [true],
       navis: [true],
-      laptop: [this.defaultProcure.equipment.laptop, Validators.pattern('[0-9]*')],
-      manager: [this.defaultProcure.manpower.manager, Validators.pattern('[0-9]*')],
-      coordinator: [this.defaultProcure.manpower.coordinator, Validators.pattern('[0-9]*')],
-      modeler: [this.defaultProcure.manpower.modeler, Validators.pattern('[0-9]*')],
+      revit_input: [this.defaultProcure.software.revit],
+      cad_input: [this.defaultProcure.software.cad],
+      data_env_input: [this.defaultProcure.software.data_env],
+      navis_input: [this.defaultProcure.software.navis],
+      laptop: [this.defaultProcure.equipment.laptop],
+      manager: [this.defaultProcure.manpower.manager],
+      coordinator: [this.defaultProcure.manpower.coordinator],
+      modeler: [this.defaultProcure.manpower.modeler],
     })
   }
 
@@ -188,10 +192,10 @@ export class InputComponent implements OnInit {
 
         this.newProcurement = {
           software: {
-            revit: form.value.revit == true ? this.defaultProcure.software.revit : 0,
-            cad: form.value.revit == true ? this.defaultProcure.software.cad : 0,
-            data_env: form.value.revit == true ? this.defaultProcure.software.data_env : 0,
-            navis: form.value.revit == true ? this.defaultProcure.software.navis : 0
+            revit: form.value.revit == true ? form.value.revit_input : 0,
+            cad: form.value.revit == true ? form.value.cad_input : 0,
+            data_env: form.value.revit == true ? form.value.data_env_input : 0,
+            navis: form.value.revit == true ? form.value.navis_input : 0
           },
           equipment: {
             laptop: form.value.laptop

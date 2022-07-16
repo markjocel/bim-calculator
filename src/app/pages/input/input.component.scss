@@ -51,7 +51,7 @@
 
     background-color: #fff;
     border-radius: 2rem;
-    padding: 3rem 2.5rem;
+    padding: 3rem 2.5rem 0 2.5rem;
 
     button {
         padding: 0 4rem;
@@ -73,12 +73,14 @@
     }
 
     .foot {
-        position: absolute;
-        bottom: 3rem;
+        position: sticky;
+        bottom: 0rem;
         right: 0;
         display: flex;
         width: 100%;
         justify-content: space-evenly;
+        background: white;
+        padding-bottom: 3rem;
 
         button {
             transform: scale(.8);
@@ -102,6 +104,11 @@
     .d-flex {
         align-items: center;
         margin-bottom: 1rem;
+
+        input[type="number"] {
+            margin-top: .5rem;
+            max-width: 150px;
+        }
     }
 
     input[type="checkbox"] {
@@ -119,6 +126,12 @@
 .input-params,
 .project-information {
     margin-top: 4.5rem;
+}
+
+.project-information,
+.work-scope,
+.client-information {
+    height: 41rem;
 }
 
 .work-scope,
@@ -246,5 +259,10 @@ form.ng-submitted {
 
     .partial-result {
         margin-top: 3rem;
+    }
+
+    .work-scope,
+    .client-information {
+        padding-bottom: 12rem;
     }
 }

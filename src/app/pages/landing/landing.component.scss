@@ -154,3 +154,47 @@
         right: 0;
     }
 }
+
+@media (max-width: 768px) {
+
+    .title {
+        height: 50rem;
+    }
+
+    .how-it-works {
+        padding: 7rem 0;
+        transform: none;
+        margin-bottom: 0;
+
+        h2 {
+            color: #006aff;
+            font-size: 3.5rem;
+        }
+
+        .image-holder {
+            position: relative;
+            height: 30rem;
+            width: 100%;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                border-radius: 10px;
+            }
+
+            .blue-box-1 {
+                height: 23rem;
+                width: 5.5rem;
+                top: 4rem;
+                left: -5rem;
+            }
+        }
+    }
+}

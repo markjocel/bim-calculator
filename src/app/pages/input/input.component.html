@@ -11,20 +11,32 @@
                                 <label for="">Softwares</label>
                                 <div class="d-flex">
                                     <input formControlName="revit" type="checkbox" id="revit" name="revit" value="1">
-                                    <span for="revit">Autodesk Revit Software & License</span><br>
+                                    <div>
+                                        <span for="revit">Autodesk Revit Software & License</span><br>
+                                        <input formControlName="revit_input" type="number">
+                                    </div>
+
                                 </div>
                                 <div class="d-flex">
-                                    <input formControlName="cad" type="checkbox" id="cad" name="cad" checked>
-                                    <span for="cad">Autodesk AutoCad Software & License</span><br>
+                                    <input formControlName="cad" type="checkbox" id="cad" name="cad">
+                                    <div>
+                                        <span for="cad">Autodesk AutoCad Software & License</span><br>
+                                        <input formControlName="cad_input" type="number">
+                                    </div>
                                 </div>
                                 <div class="d-flex">
-                                    <input formControlName="data_env" type="checkbox" id="data_env" name="data_env"
-                                        checked>
-                                    <span for="data_env">Common Data Environment CDE: BIM 360</span><br>
+                                    <input formControlName="data_env" type="checkbox" id="data_env" name="data_env">
+                                    <div>
+                                        <span for="data_env">Common Data Environment CDE: BIM 360</span><br>
+                                        <input formControlName="data_env_input" type="number">
+                                    </div>
                                 </div>
                                 <div class="d-flex">
-                                    <input formControlName="navis" type="checkbox" id="navis" name="navis" checked>
-                                    <span for="navis">Autodesk Navisworks Software & License</span><br>
+                                    <input formControlName="navis" type="checkbox" id="navis" name="navis">
+                                    <div>
+                                        <span for="navis">Autodesk Navisworks Software & License</span><br>
+                                        <input formControlName="navis_input" type="number">
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
