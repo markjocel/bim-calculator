@@ -27,7 +27,7 @@
 
     /* Track */
     &::-webkit-scrollbar-track {
-        background: white;
+        background: transparent;
     }
 
     /* Handle */
@@ -77,10 +77,11 @@
         bottom: 0rem;
         right: 0;
         display: flex;
-        width: 100%;
+        width: calc(100% + 6rem);
         justify-content: space-evenly;
         background: white;
         padding-bottom: 3rem;
+        margin-left: -3rem;
 
         button {
             transform: scale(.8);
@@ -252,6 +253,7 @@ form.ng-submitted {
 
     &.hidden {
         max-width: 0;
+        height: 0;
 
         .partial-result {
             opacity: 0;
@@ -320,5 +322,26 @@ form.ng-submitted {
     .work-scope,
     .client-information {
         padding-bottom: 12rem;
+    }
+
+    .input-params {
+        .currency-input {
+            position: relative;
+            width: 100%;
+            display: flex;
+            margin-top: .5rem;
+
+        }
+    }
+
+    .input-params,
+    .project-information,
+    .work-scope,
+    .client-information {
+        margin-top: 0;
+    }
+
+    .footer-error {
+        bottom: 10rem;
     }
 }
