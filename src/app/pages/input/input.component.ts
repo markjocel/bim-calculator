@@ -206,7 +206,7 @@ export class InputComponent implements OnInit {
 
         var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod, form.value.project_floor_area) * form.value.project_type.value
         var structureTotal = this.computeService.computeStructure(floorArea, structureLod, form.value.project_floor_area) * form.value.project_type.value
-        var mepfsTotal = this.computeService.computeMepfs(floorArea, architectureLod, form.value.project_floor_area) * form.value.project_type.value
+        var mepfsTotal = this.computeService.computeMepfs(floorArea, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
         var managementTotal = this.computeService.computeManager(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
         var softwareTotal = this.computeService.computeSoftware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
         var equipmentTotal = this.computeService.computeHardware(floorArea, architectureLod, structureLod, mepfsLod, form.value.project_floor_area) * form.value.project_type.value
