@@ -15,6 +15,7 @@ export class InputComponent implements OnInit {
   costForm: FormGroup
   totalPayment: number = 0
   computations: any = {}
+  showFooterError: boolean = false
 
   options = {
     project_type: [
@@ -135,14 +136,14 @@ export class InputComponent implements OnInit {
       cad: [true],
       data_env: [true],
       navis: [true],
-      revit_input: [this.defaultProcure.software.revit],
-      cad_input: [this.defaultProcure.software.cad],
-      data_env_input: [this.defaultProcure.software.data_env],
-      navis_input: [this.defaultProcure.software.navis],
-      laptop: [this.defaultProcure.equipment.laptop],
-      manager: [this.defaultProcure.manpower.manager],
-      coordinator: [this.defaultProcure.manpower.coordinator],
-      modeler: [this.defaultProcure.manpower.modeler],
+      revit_input: [this.defaultProcure.software.revit, Validators.required],
+      cad_input: [this.defaultProcure.software.cad, Validators.required],
+      data_env_input: [this.defaultProcure.software.data_env, Validators.required],
+      navis_input: [this.defaultProcure.software.navis, Validators.required],
+      laptop: [this.defaultProcure.equipment.laptop, Validators.required],
+      manager: [this.defaultProcure.manpower.manager, Validators.required],
+      coordinator: [this.defaultProcure.manpower.coordinator, Validators.required],
+      modeler: [this.defaultProcure.manpower.modeler, Validators.required],
     })
   }
 
@@ -174,6 +175,8 @@ export class InputComponent implements OnInit {
     // Handle not requireds meron na
     console.log(form)
     if (form.valid) {
+      this.showFooterError = false
+
       var floorArea = this.computeService.getFloorArea(form.value.project_floor_area)
       var architectureLod = form.value.architecture.value
       var structureLod = form.value.structure.value
@@ -241,6 +244,8 @@ export class InputComponent implements OnInit {
         localStorage.setItem("computations", JSON.stringify(this.computations))
         console.warn("TOTAL", overallTotal)
       }
+    } else {
+      this.showFooterError = true
     }
   }
 
@@ -255,8 +260,33 @@ export class InputComponent implements OnInit {
   }
 
   next() {
-    this.steps == 4 ? null : this.steps += 1
-    console.log(this.costForm.value)
+    console.log(this.costForm)
+    var form = this.costForm.controls
+    switch (this.steps) {
+      case 1:
+        if (form['revit_input'].valid && form['cad_input'].valid && form['data_env_input'].valid && form['navis_input'].valid && form['laptop'].valid && form['manager'].valid && form['modeler'].valid && form['coordinator'].valid) {
+          this.steps += 1
+          this.showFooterError = false
+        } else this.showFooterError = true
+        break;
+
+      case 2:
+        if (form['project_type'].valid && form['project_floor_area'].valid) {
+          this.steps += 1
+          this.showFooterError = false
+        } else this.showFooterError = true
+        break;
+
+      case 3:
+        if (form['architecture'].valid && form['structure'].valid && form['mepfs'].valid && form['drawing_production'].valid) {
+          this.steps += 1
+          this.showFooterError = false
+        } else this.showFooterError = true
+        break
+
+      default:
+        break;
+    }
   }
 
 }
