@@ -75,6 +75,7 @@
     .foot {
         position: absolute;
         bottom: 3rem;
+        right: 0;
         display: flex;
         width: 100%;
         justify-content: space-evenly;
@@ -93,6 +94,24 @@
                 cursor: not-allowed;
                 filter: grayscale(1);
             }
+        }
+    }
+}
+
+.input-params {
+    .d-flex {
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 2rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        cursor: pointer;
+
+        &+span {
+            font-size: 1.4rem;
         }
     }
 }

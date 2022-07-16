@@ -113,6 +113,12 @@ export class InputComponent implements OnInit {
     private router: Router,
     private procurementService: ProcurementService
   ) {
+
+    this.procurementService.getProcurement().subscribe(x => {
+      this.defaultProcure = x
+      console.warn(x)
+    })
+
     this.costForm = this.formBuilder.group({
       project_type: ['', Validators.required],
       project_floor_area: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*'), Validators.max(10000)])],
@@ -125,39 +131,44 @@ export class InputComponent implements OnInit {
       contact_number: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]*')])],
       email: ['', Validators.compose([Validators.required, Validators.email])],
       address: ['', Validators.required],
+      revit: [true],
+      cad: [true],
+      data_env: [true],
+      navis: [true],
+      laptop: [this.defaultProcure.equipment.laptop, Validators.pattern('[0-9]*')],
+      manager: [this.defaultProcure.manpower.manager, Validators.pattern('[0-9]*')],
+      coordinator: [this.defaultProcure.manpower.coordinator, Validators.pattern('[0-9]*')],
+      modeler: [this.defaultProcure.manpower.modeler, Validators.pattern('[0-9]*')],
     })
   }
 
   ngOnInit(): void {
-    this.procurementService.getProcurement().subscribe(x => {
-      this.defaultProcure = x
-      console.warn(x)
-    })
 
-    this.newProcurement = {
-      software: {
-        revit: 1,
-        cad: 1,
-        data_env: 1,
-        navis: 1
-      },
-      equipment: {
-        laptop: 1
-      },
-      manpower: {
-        manager: 1,
-        coordinator: 1,
-        modeler: 1
-      }
-    }
+    // this.newProcurement = {
+    //   software: {
+    //     revit: 1,
+    //     cad: 1,
+    //     data_env: 1,
+    //     navis: 1
+    //   },
+    //   equipment: {
+    //     laptop: 1
+    //   },
+    //   manpower: {
+    //     manager: 1,
+    //     coordinator: 1,
+    //     modeler: 1
+    //   }
+    // }
 
-    this.procurementService.setProcurement(this.newProcurement)
-    console.warn(this.defaultProcure)
+    // this.procurementService.setProcurement(this.newProcurement)
+    // console.warn(this.defaultProcure)
   }
 
   submit(form: FormGroup) {
     // Check if area is too big
     // Handle not requireds meron na
+    console.log(form)
     if (form.valid) {
       var floorArea = this.computeService.getFloorArea(form.value.project_floor_area)
       var architectureLod = form.value.architecture.value
@@ -171,8 +182,28 @@ export class InputComponent implements OnInit {
         // catch invalid here
         this.submitted = false
       } else {
-        this.submitted = true
+
         // valid response
+        this.submitted = true
+
+        this.newProcurement = {
+          software: {
+            revit: form.value.revit == true ? this.defaultProcure.software.revit : 0,
+            cad: form.value.revit == true ? this.defaultProcure.software.cad : 0,
+            data_env: form.value.revit == true ? this.defaultProcure.software.data_env : 0,
+            navis: form.value.revit == true ? this.defaultProcure.software.navis : 0
+          },
+          equipment: {
+            laptop: form.value.laptop
+          },
+          manpower: {
+            manager: form.value.manager,
+            coordinator: form.value.coordinator,
+            modeler: form.value.modeler
+          }
+        }
+        this.procurementService.setProcurement(this.newProcurement)
+
         var architectureTotal = this.computeService.computeArchitecture(floorArea, architectureLod, form.value.project_floor_area) * form.value.project_type.value
         var structureTotal = this.computeService.computeStructure(floorArea, structureLod, form.value.project_floor_area) * form.value.project_type.value
         var mepfsTotal = this.computeService.computeMepfs(floorArea, architectureLod, form.value.project_floor_area) * form.value.project_type.value
@@ -221,6 +252,7 @@ export class InputComponent implements OnInit {
 
   next() {
     this.steps == 4 ? null : this.steps += 1
+    console.log(this.costForm.value)
   }
 
 }

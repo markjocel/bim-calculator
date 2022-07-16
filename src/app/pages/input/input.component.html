@@ -10,37 +10,38 @@
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Softwares</label>
                                 <div class="d-flex">
-                                    <input type="checkbox" id="revit" name="revit" checked>
+                                    <input formControlName="revit" type="checkbox" id="revit" name="revit" value="1">
                                     <span for="revit">Autodesk Revit Software & License</span><br>
                                 </div>
                                 <div class="d-flex">
-                                    <input type="checkbox" id="revit" name="revit" checked>
-                                    <span for="revit">Autodesk AutoCad Software & License</span><br>
+                                    <input formControlName="cad" type="checkbox" id="cad" name="cad" checked>
+                                    <span for="cad">Autodesk AutoCad Software & License</span><br>
                                 </div>
                                 <div class="d-flex">
-                                    <input type="checkbox" id="revit" name="revit" checked>
-                                    <span for="revit">Common Data Environment CDE: BIM 360</span><br>
+                                    <input formControlName="data_env" type="checkbox" id="data_env" name="data_env"
+                                        checked>
+                                    <span for="data_env">Common Data Environment CDE: BIM 360</span><br>
                                 </div>
                                 <div class="d-flex">
-                                    <input type="checkbox" id="revit" name="revit" checked>
-                                    <span for="revit">Autodesk Navisworks Software & License</span><br>
+                                    <input formControlName="navis" type="checkbox" id="navis" name="navis" checked>
+                                    <span for="navis">Autodesk Navisworks Software & License</span><br>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Laptop/Computer</label>
-                                <input formControlName="project_floor_area" type="number">
+                                <input formControlName="laptop" type="number">
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">BIM Manager</label>
-                                <input formControlName="project_location" type="text">
+                                <input formControlName="manager" type="number">
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">BIM Coordinator</label>
-                                <input formControlName="project_location" type="text">
+                                <input formControlName="coordinator" type="number">
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">BIM Modeler</label>
-                                <input formControlName="project_location" type="text">
+                                <input formControlName="modeler" type="number">
                             </div>
                         </div>
                     </div>
@@ -58,11 +59,13 @@
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Project Floor Area (SQ.M)*</label>
-                                <input formControlName="project_floor_area" type="number">
+                                <input formControlName="project_floor_area" type="number"
+                                    placeholder="Enter total area">
                             </div>
                             <div class="col-xs-12 col-md-6">
                                 <label for="">Project Location*</label>
-                                <input formControlName="project_location" type="text">
+                                <input formControlName="project_location" type="text"
+                                    placeholder="Enter project location">
                             </div>
                         </div>
                     </div>
@@ -126,15 +129,16 @@
                             </div>
                         </div>
 
-                        <button type="submit">Calculate</button>
+                    </div>
+
+                    <div class="foot">
+                        <button type="button" class="back" (click)="back()" [disabled]="steps == 1">Back</button>
+                        <button type="button" (click)="next()" *ngIf="steps != 4">Next</button>
+                        <button type="submit" *ngIf="steps == 4">Calculate</button>
                     </div>
 
                 </form>
 
-                <div class="foot">
-                    <button class="back" (click)="back()" [disabled]="steps == 1">Back</button>
-                    <button (click)="next()" [disabled]="steps == 4">Next</button>
-                </div>
             </div>
         </div>
         <div class="col-xs-12 col-md-4 partial-container" [ngClass]="{hidden : !submitted}">
